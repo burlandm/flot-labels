@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Labels Example</title>
+
+    <style type="text/css">
+        body
+        {
+            font-family: Arial;
+        }
+        .myCSSClass
+        {
+            margin-top: 4px;
+            font-size: 9px;
+            color: #AD8200;
+            padding: 2px;
+            opacity: 0.80;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/flot/flot/master/jquery.flot.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/burlandm/flot-labels/master/jquery.flot.labels.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            var options = {
+                xaxis: {
+                    autoscaleMargin: 0.04
+                },
+                yaxis: {
+                    autoscaleMargin: 0.02
+                }
+            };
+
+            var data = [
+                [-8.263189352, -26.07674966],
+                [-1.103810127, -33.02086135],
+                [-18.154645857, -22.78913668],
+                [-19.42115961, 3.216845015],
+                [1.13113291, 19.32546567],
+                [-56.9405708, 22.17147898],
+                [26.61013394, -16.66337248],
+                [56.1421089, 53.8363305]
+            ];
+
+            var names = [
+                "Alpha",
+                "Beta",
+                "Gamma",
+                "Delta",
+                "Epsilon",
+                "Zeta",
+                "Eta",
+                "Theta"
+            ];
+
+            var dataset = { data: data, points: { show: true }, showLabels: true, labels: names, labelPlacement: "below", labelClass: "myCSSClass"};
+            $.plot($("#placeholder"), [dataset], options);
+
+            $("#showLabels").click(function () {
+                dataset.showLabels = !dataset.showLabels;
+                $.plot($("#placeholder"), [dataset], options);
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <p>A simple example of the label plugin.</p>
+    <div id="placeholder" style="width:500px; height:350px"></div>
+    <span>Show Labels:</span><input type="checkbox" id="showLabels" checked="checked" />
+</body>
+</html>

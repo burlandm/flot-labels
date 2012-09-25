@@ -30,7 +30,6 @@ usage -
     <style type="text/css">
     .myCSSClass
     {
-        margin-top: 10px;
         font-size: 9px;
         color: #AD8200;
         padding: 2px;
@@ -43,7 +42,7 @@ usage -
         "foo",
         "bar"
     ];
-    var data = { data: [[1,1],[2,2]], points: { show: true }, showLabels: true, labels: names, labelPlacement: "left", labelClass: "myCSSClass" };
+    var data = { data: [[1,1],[2,2]], showLabels: true, labels: names, labelPlacement: "left", labelClass: "myCSSClass" };
     $.plot($("#placeholder), [data], options);
     </script>
 
@@ -89,13 +88,13 @@ be skipped. For example, to label only the 1st and 3rd points:
             if (series.labels[i]) {
                 var loc = plot.pointOffset({ x: series.data[i][0], y: series.data[i][1] });
                 var offset = plot.getPlotOffset();
-                if (loc.left > offset.left && loc.left < plot.width() + offset.left && loc.top > offset.top && loc.top < plot.height() + offset.top)
+                if (loc.left > 0 && loc.left < plot.width() && loc.top > 0 && loc.top < plot.height())
                     drawLabel(series.labels[i], loc.left, loc.top);
             }
         }
 
         function drawLabel(contents, x, y) {
-            var elem = $('<div class="' + series.labelClass + '">' + contents + '</div>').css({ position: 'absolute' }).appendTo("body");
+            var elem = $('<div class="' + series.labelClass + '">' + contents + '</div>').css({ position: 'absolute' }).appendTo(plot.getPlaceholder());
             switch (series.labelPlacement) {
                 case "above":
                     elem.css({
