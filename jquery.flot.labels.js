@@ -104,13 +104,13 @@ be skipped. For example, to label only the 1st and 3rd points:
                     break;
                 case "left":
                     elem.css({
-                        top: y /*+ elem.height() / 2*/,
+                        top: y - elem.height() / 2,
                         left:x - elem.width() 
                     });
                     break;
                 case "right":
                     elem.css({
-                        top: y /*- elem.height() / 2*/,
+                        top: y - elem.height() / 2,
                         left:x /*+ 15 */
                     });
                     break;
