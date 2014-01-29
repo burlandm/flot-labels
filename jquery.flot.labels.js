@@ -68,7 +68,7 @@ Options added to series (with defaults):
 
             canvasRender: false,                // false will add divs to the DOM rather than use canvas.fillText
             cColor: "#000",                     // color for the text if using canvasRender
-            cFont: "9px, san-serif",            // font for the text if using canvasRender
+            cFont: "9px sans-serif",            // font for the text if using canvasRender
             cPadding: 4                         // Padding to add when using canvasRender (where padding is added depends on
                                                 // labelPlacement)
 
@@ -193,7 +193,7 @@ Also, version 0.2 takes into account the radius of the data points when placing 
             labelPlacement: "below",
             canvasRender: false,
             cColor: "#000",
-            cFont: "9px, san-serif",
+            cFont: "9px sans-serif",
             cPadding: 4
         }
     };
