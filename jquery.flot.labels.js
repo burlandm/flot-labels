@@ -179,7 +179,7 @@ Also, version 0.2 takes into account the radius of the data points when placing 
         var series = plot.getData();
         for (var i = 0; i < series.length; i++) {
             if (!series[i].canvasRender && series[i].labelClass) {
-                $("." + series[i].labelClass).remove();
+                eventHolder.find("." + series[i].labelClass).remove();
             }
         }
     }
